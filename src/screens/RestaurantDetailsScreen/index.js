@@ -1,6 +1,7 @@
 import { View, Text, Image, FlatList, StyleSheet } from 'react-native';
 import restaurants from '../../../assets/data/restaurants.json';
 import { Ionicons } from '@expo/vector-icons';
+import DishListItem from '../../components/DishListItem';
 
 const restaurant = restaurants[0];
 
@@ -25,6 +26,11 @@ function RestaurantDetailsScreen(){
                 </Text>
             </View>
 
+            <FlatList 
+              data={restaurant.dishes }
+              renderItem={({ item }) => <DishListItem dish={item} />}
+              keyExtractor={(item) => item.name}
+            />
         </View>
     )
 }
