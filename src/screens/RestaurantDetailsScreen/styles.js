@@ -37,4 +37,4 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         flexDirection: 'row',
     }
-  });
+  }); 
