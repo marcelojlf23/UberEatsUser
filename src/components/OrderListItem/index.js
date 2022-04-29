@@ -15,7 +15,7 @@ const OrderListItem = ({order}) => {
             </View>
         </View>
     )
-}
+} 
         
 export default OrderListItem;
 
