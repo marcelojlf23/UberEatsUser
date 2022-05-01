@@ -37,7 +37,7 @@ const HomeTabs = () => {
             />
             <Tab.Screen 
                 name="Orders" 
-                component={ OrdersScreen }
+                component={ OrderStackNavigator }
                 options={{
                     tabBarIcon: ({ color }) => (
                         <MaterialIcons name="list-alt" size={25} color={color} />
@@ -67,6 +67,17 @@ const HomeStackNavigator = () => {
             <HomeStack.Screen name="Dish" component={ DishDetailsScreen } />
             <HomeStack.Screen name="Basket" component={ Basket } />
         </HomeStack.Navigator>
+    );
+};
+
+const OrderStack = createNativeStackNavigator();
+
+const OrderStackNavigator = () => {
+    return (
+        <OrderStack.Navigator>
+            <OrderStack.Screen name="Orders" component={ OrdersScreen } />
+            <OrderStack.Screen name="Order" component={ OrderDetails } />
+        </OrderStack.Navigator>
     );
 };
 
