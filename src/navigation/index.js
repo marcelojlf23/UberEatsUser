@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
     return (
-        <Stack.Navigator screenOptions={{ headerShow: false }}>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen name="HomeTabs" component={ HomeTabs } />
         </Stack.Navigator>
     )
@@ -24,7 +24,7 @@ const Tab = createBottomTabNavigator();
 
 const HomeTabs = () => {
     return (
-        <Tab.Navigator 
+        <Tab.Navigator screenOptions={{headerShown: false}}
             barStyle={{  backgroundColor: 'white'  }}
         >
             <Tab.Screen 
@@ -63,8 +63,8 @@ const HomeStack = createNativeStackNavigator();
 const HomeStackNavigator = () => {
     return (
         <HomeStack.Navigator>
-            <HomeStack.Screen name="Restaurants" component={ HomeScreen } />
-            <HomeStack.Screen name="Restaurant" component={ RestaurantDetailsScreen } />
+            <HomeStack.Screen name="Restaurants"  component={ HomeScreen } />
+            <HomeStack.Screen name="Restaurant" options={{headerShown: false}} component={ RestaurantDetailsScreen } />
             <HomeStack.Screen name="Dish" component={ DishDetailsScreen } />
             <HomeStack.Screen name="Basket" component={ Basket } />
         </HomeStack.Navigator>
