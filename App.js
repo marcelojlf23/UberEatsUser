@@ -8,8 +8,13 @@ import OrdersScreen from './src/screens/OrdersScreen';
 import RestaurantDetailsScreen from './src/screens/RestaurantDetailsScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './src/navigation';
+import { Amplify } from 'aws-amplify';
+import { withAuthenticator  } from 'aws-amplify-react-native';
+import config from './src/aws-exports';
 
-export default function App() {
+Amplify.configure(config);
+
+function App() {
   return (
     <NavigationContainer>    
       <View style={styles.container}>
@@ -20,6 +25,8 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+export default withAuthenticator(App);
 
 const styles = StyleSheet.create({
   container: {
