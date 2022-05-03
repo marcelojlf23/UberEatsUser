@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 const BasketDishItem = ({ basketDish }) => {
     return (
         <View style={styles.row} >
-            <View s tyle={styles.quantityContainer}>
+            <View style={styles.quantityContainer}>
                 <Text>1</Text>
             </View>
             <Text style={{fontWeight: 'bold'}}>{basketDish.name}</Text>

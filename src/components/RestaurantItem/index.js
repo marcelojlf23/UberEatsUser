@@ -24,7 +24,6 @@ const RestaurantItem = ({ restaurant }) => {
         <View> 
           <Text style={styles.rating}>{ restaurant.rating }</Text>
         </View>
-
       </View>
     </Pressable>
   )

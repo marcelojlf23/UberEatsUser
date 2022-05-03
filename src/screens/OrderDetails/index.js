@@ -3,7 +3,6 @@ import { View, Text, Image, FlatList } from 'react-native';
 import orders from "../../../assets/data/orders.json";
 import restaurants from "../../../assets/data/restaurants.json";
 import BasketDishItem from '../../components/BasketDishItem';
-import DishListItem from '../../components/DishListItem';
 import styles from './styles';
 
 const order = orders[0];
