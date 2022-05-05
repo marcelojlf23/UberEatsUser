@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
 
     // marginVertical: 20,
-  }, 
+  },  
 });
  
