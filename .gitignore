@@ -43,3 +43,14 @@ amplify/backend/backend-config.json
 amplify/backend/auth/UberEats/cli-inputs.json
 amplify/.config/project-config.json
 .vscode/settings.json
+.eslintignore
+amplify/backend/api/UberEats/cli-inputs.json
+amplify/backend/api/UberEats/parameters.json
+amplify/backend/api/UberEats/resolvers/README.md
+amplify/backend/api/UberEats/schema.graphql
+amplify/backend/api/UberEats/stacks/CustomResources.json
+amplify/backend/api/UberEats/transform.conf.json
+src/models/index.d.ts
+src/models/index.js
+src/models/schema.d.ts
+src/models/schema.js
