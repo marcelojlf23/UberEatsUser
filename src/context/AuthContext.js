@@ -1,6 +1,5 @@
 import { Auth } from 'aws-amplify';
-import { createContext, useEffect, useState } from 'react';
-import { useContext } from 'react/cjs/react.production.min';
+import { createContext, useEffect, useState, useContext } from 'react';
 
 const AuthContext = createContext({});
 
@@ -23,4 +22,4 @@ const AuthContextProvider = ({ children }) => {
 
 export default AuthContextProvider;
 
-export const useAuthContext = () => { useContext(AuthContext) } 
+export const useAuthContext = () => useContext(AuthContext);

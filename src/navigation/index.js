@@ -7,15 +7,22 @@ import Basket from '../screens/Basket';
 import ProfileScreen from '../screens/ProfileScreen';
 import OrderDetails from '../screens/OrderDetails';
 import OrdersScreen from '../screens/OrdersScreen';
-import { NavigationContainer } from '@react-navigation/native';
 import { Foundation, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
+import { useAuthContext } from '../context/AuthContext';
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
+
+    const { dbUser } = useAuthContext();
+
     return (
         <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="HomeTabs" component={ HomeTabs } />
+            { dbUser ? (
+                <Stack.Screen name="HomeTabs" component={ HomeTabs } />
+            ) : (
+                <Stack.Screen name="Profile" component={ ProfileScreen } />
+            )}
         </Stack.Navigator>
     )
 }
