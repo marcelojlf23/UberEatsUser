@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, Image, FlatList, StyleSheet, ActivityIndicator, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import DishListItem from '../../components/DishListItem';
 import Header from './Header';
@@ -19,7 +19,7 @@ function RestaurantDetailsScreen() {
  
     const id = route.params?.id;
 
-    const {setRestaurant: setBasketRestaurant} = useBasketContext();
+    const {setRestaurant: setBasketRestaurant, basket } = useBasketContext();
 
     useEffect(() => {
       if (!id) {
@@ -27,7 +27,7 @@ function RestaurantDetailsScreen() {
       }
 
       setBasketRestaurant(null);
-
+ 
       DataStore.query(Restaurant, id).then(setRestaurant);
 
       DataStore.query(Dish, (dish) => dish.restaurantID("eq", id)).then(setDishes);
@@ -41,7 +41,6 @@ function RestaurantDetailsScreen() {
       return (<ActivityIndicator size={"large"}  color="gray"/>);
     }
     
-  
     return (
         <View styles={styles.page}>
             <FlatList 
@@ -51,7 +50,6 @@ function RestaurantDetailsScreen() {
               keyExtractor={item => item.name}
             />
 
-            
             <Ionicons 
               onPress={() => navigation.goBack()}
               name="arrow-back-circle" 
@@ -59,7 +57,11 @@ function RestaurantDetailsScreen() {
               color='white' 
               style={styles.iconContainer}
             />
-
+          { basket && (
+            <Pressable onPress={ () => navigation.navigate('Basket') } style={styles.button} >
+              <Text style={styles.buttonText}>Open basket</Text>
+            </Pressable>
+          )}
         </View>
     )
 }

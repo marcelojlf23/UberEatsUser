@@ -36,5 +36,16 @@ export default StyleSheet.create({
         borderBottomColor: "lightgray",
         borderBottomWidth: 1,
         flexDirection: 'row',
-    }
+    },
+    button: {
+        backgroundColor: 'black',
+        marginTop: 'auto',
+        padding: 20,
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: '600',
+        fontSize: 18,
+    },
   }); 

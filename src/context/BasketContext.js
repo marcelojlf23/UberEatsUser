@@ -32,7 +32,7 @@ const BasketContextProvider = ({ children }) => {
     }
 
     return ( 
-        <BasketContext.Provider value={{ addDishToBasket, setRestaurant }}>
+        <BasketContext.Provider value={{ addDishToBasket, setRestaurant, basket }}>
             {children}  
         </BasketContext.Provider>
     );
