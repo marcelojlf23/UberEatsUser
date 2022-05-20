@@ -6,7 +6,7 @@ import Header from './Header';
 import styles from './styles';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { DataStore } from 'aws-amplify';
-import { Restaurant, Dish } from "../../models";
+import { Restaurant, Dish, BasketDish } from "../../models";
 import { useBasketContext } from '../../context/BasketContext';
 
 function RestaurantDetailsScreen() {
@@ -19,7 +19,7 @@ function RestaurantDetailsScreen() {
  
     const id = route.params?.id;
 
-    const {setRestaurant: setBasketRestaurant, basket } = useBasketContext();
+    const {setRestaurant: setBasketRestaurant, basket, basketDishes } = useBasketContext();
 
     useEffect(() => {
       if (!id) {
@@ -59,7 +59,7 @@ function RestaurantDetailsScreen() {
             />
           { basket && (
             <Pressable onPress={ () => navigation.navigate('Basket') } style={styles.button} >
-              <Text style={styles.buttonText}>Open basket</Text>
+              <Text style={styles.buttonText}>Open basket ({basketDishes.length})</Text>
             </Pressable>
           )}
         </View>
