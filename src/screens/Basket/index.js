@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import BasketDishItem from '../../components/BasketDishItem';
 import { useBasketContext } from '../../context/BasketContext';
-// import restaurants from '../../../assets/data/restaurants.json';
-// const restaurant = restaurants[0];
+import { useOrderContext } from '../../context/OrderContext';
+
 
 const Basket = () => {
   const { restaurant, basketDishes, totalPrice } = useBasketContext();
-    console.log(basketDishes);
+  const { createOrder } = useOrderContext();
+
   return (
     <View style={styles.page}>
         <Text style={styles.name}>{restaurant?.name}</Text>
@@ -23,9 +24,9 @@ const Basket = () => {
      
         <View style={styles.separator} />
 
-         <View style={styles.button}>
+         <Pressable onPress={createOrder} style={styles.button}>
             <Text style={styles.buttonText}>Create Order ${totalPrice.toFixed(2)}</Text>
-        </View>
+        </Pressable>
     </View>
   )
 }
