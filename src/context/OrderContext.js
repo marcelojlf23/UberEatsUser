@@ -48,9 +48,9 @@ const OrderContextProvider = ({children}) => {
     }
 
     const getOrder = async (id) => {
-        const order = await DataStore.query(Order, id);
+        const order = await DataStore.query(Order, id); 
         const orderDishes = await DataStore.query(OrderDish, (od) => 
-            od.orderID("eq", id)
+            od.orderID("eq", id) 
         );
 
         return { ...order, dishes: orderDishes };
